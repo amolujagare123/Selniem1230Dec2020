@@ -26,14 +26,16 @@ public class LoginOperationXpath {
         WebElement btnLogin = driver.findElement(By.xpath("//input[@type='submit']"));
         btnLogin.click();
 
-        /* Homework :   // implicit wait  | Thread.sleep(10000) - > couplsary waits for 10 sec.
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         // maximum 10 sec , within 10 sec if it finds element it it immediately proceeds
 
-        WebElement lnkSupplier = driver.findElement(By.linkText("Add Supplier"));
+        WebElement lnkSupplier = driver.findElement(By.xpath("//a[text()='Add Supplier']"));
         lnkSupplier.click();
 
+
+
+        /* Homework :   // implicit wait  | Thread.sleep(10000) - > couplsary waits for 10 sec.
 
         WebElement txtName = driver.findElement(By.id("name"));
         txtName.sendKeys("Sujit");
