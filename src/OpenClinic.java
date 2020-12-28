@@ -12,10 +12,6 @@ public class OpenClinic {
         driver.manage().window().maximize();
         driver.get("http://openclinic.sourceforge.net/openclinic/admin/staff_list.php");
 
-
-
-
-
     }
 
 }
