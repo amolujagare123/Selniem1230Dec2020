@@ -3,6 +3,7 @@ package TestNGDemos.Websites;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -29,10 +30,14 @@ public class ForumSites {
 
 
     @Test
-    public void twitter() {
+    public void stackoverflow() {
 
         // open url
         driver.get("http://stackoverflow.com");
+
+        Assert.assertEquals("page title",driver.getTitle(),"this is a wrong page");
+
+
     }
 
     @Test
