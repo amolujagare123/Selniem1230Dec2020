@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class ClassOne {
 
 
-    @BeforeTest
+   /* @BeforeTest
     public void myBeforeTest()
     {
         System.out.println("myBeforeTest");
@@ -18,7 +18,7 @@ public class ClassOne {
     {
         System.out.println("myAfterTest");
     }
-
+*/
 
     @Test
     public void classOneTest1()
@@ -26,7 +26,7 @@ public class ClassOne {
         System.out.println("classOneTest1");
     }
 
-    @Test (groups = "email")
+    @Test //(groups = "email")
     public void classOneTest2()
     {
         System.out.println("classOneTest2");

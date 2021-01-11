@@ -41,10 +41,10 @@ public class ForumSites {
     }
 
     @Test
-    public void facebook() {
+    public void sqaforums() {
 
         // open url
-        driver.get("www.sqaforums.");
+        driver.get("www.sqaforums.com");
     }
 
    
