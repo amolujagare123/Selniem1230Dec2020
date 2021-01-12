@@ -1,29 +1,12 @@
 package TestNGDemos.Websites;
 
+import TestNGDemos.Websites.util.Initialization;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
-public class SocialSites {
-
-    WebDriver driver;
-
-    @BeforeClass
-    public void mymethod1()
-    {
-        //open browser
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        //maximize
-        driver.manage().window().maximize();
-    }
-
-    @AfterClass
-    public void myMethod2()
-    {
-        driver.close();
-    }
+public class SocialSites extends Initialization  {
 
 
     @Test (priority =  1)

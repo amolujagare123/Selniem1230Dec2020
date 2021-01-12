@@ -1,19 +1,23 @@
 package Reports.ExtentRerportsDemo.util;
 
+import TestNGDemos.Websites.util.Initialization;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import static Reports.ExtentRerportsDemo.util.ExtentUtil.initExtentReport;
+import java.io.IOException;
 
-public class MyExtentListner implements ITestListener {
+import static Reports.ExtentRerportsDemo.util.ExtentUtil.initExtentReport;
+import static Reports.ExtentRerportsDemo.util.ExtentUtil.takescreenshot;
+
+public class MyExtentListner extends Initialization implements ITestListener {
 
     static ExtentReports extent;
     ExtentTest test;
 
-    @Override
+
     public void onStart(ITestContext iTestContext)
     {
         System.out.println("====onStart=========>>>");
@@ -22,7 +26,7 @@ public class MyExtentListner implements ITestListener {
     }
 
 
-    @Override
+
     public void onTestStart(ITestResult iTestResult) {
 
         System.out.println("====onTestStart=========>>>");
@@ -31,34 +35,40 @@ public class MyExtentListner implements ITestListener {
 
     }
 
-    @Override
+
     public void onTestSuccess(ITestResult iTestResult) {
         System.out.println("====onTestSuccess=========>>>");
 
         test.pass(iTestResult.getMethod().getMethodName()+" : this thest is passed");
     }
 
-    @Override
+
     public void onTestFailure(ITestResult iTestResult) {
         System.out.println("====onTestFailure=========>>>");
         test.fail(iTestResult.getThrowable());
 
+        try {
+            test.addScreenCaptureFromPath("./screenshots/"+takescreenshot(driver));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
-    @Override
+
     public void onTestSkipped(ITestResult iTestResult) {
         System.out.println("====onTestSkipped=========>>>");
         test.skip("This test is skipped");
 
     }
 
-    @Override
+
     public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
 
     }
 
 
-    @Override
+
     public void onFinish(ITestContext iTestContext) {
         System.out.println("====onFinish=========>>>");
 
